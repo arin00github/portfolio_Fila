@@ -58,7 +58,7 @@ let store = createStore(combineReducers({ShoesFn, BagFn, CapFn, UserArray}));
 ReactDOM.render(
   <React.StrictMode>
     {/* <BrowserRouter basename="/portfolio01"> */}
-    <BrowserRouter>
+    <BrowserRouter basename="/portfolio_Fila">
     <Provider store={store}>
       <App />
     </Provider>  
