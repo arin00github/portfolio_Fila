@@ -1,0 +1,42 @@
+#footer{
+    background-color: #f8f8f8;
+
+    .ft-inner{
+        width: 70%;
+        margin: 2rem auto;
+
+        .ft-list{
+            display: flex;
+            justify-content: center;
+            height: 3rem;
+
+            li{
+                margin: 0 1rem;
+                line-height: 3rem;
+            }
+        }
+        .ft-info{
+            padding: 1rem 0;
+            
+            h4{
+                padding: 1rem 0;
+            }
+            
+
+            ul{
+                display: flex;
+                justify-content: center;
+
+            li{
+                margin: 0 1rem;
+            }
+            }
+        }
+        .alert{
+            padding: 1rem 0;
+        }
+
+    }
+
+
+}

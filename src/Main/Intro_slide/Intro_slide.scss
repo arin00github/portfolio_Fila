@@ -1,0 +1,90 @@
+
+$fontNumber00 : "Sanchez";
+$fontNumber01 : "roboto";
+
+@mixin centerHorizon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.slick-slider{
+    //background: #F6F6F6;
+    padding: 1rem 0;
+    
+    
+    
+    .slick-slide{
+        border: 1px solid #ebebeb;
+        opacity: 0.3;
+        box-sizing: border-box;
+
+        div{
+            position: relative;
+            height: 380px;
+
+            .unit{
+                position: absolute;
+                left: 0; top: 0; 
+    
+                .unit-title{
+                    height: auto;
+                    @include centerHorizon();
+                    bottom: 80px;
+                    font-size: 18px;
+                    
+                }
+                .unit-price{
+                    height: auto;
+                    @include centerHorizon();
+                    bottom: 50px;
+                    font-size: 24px;
+                    font-family: $fontNumber00;
+                    
+                }
+                .unit-btn{
+                    position: absolute;
+                    @include centerHorizon();
+                    bottom: 30px;
+                    opacity: 0;
+                }
+    
+                img{
+                    width: 80%;
+                    display: block;
+                    @include centerHorizon();
+                    transform-origin: 20% 65%;
+                    top: 35px;
+                }
+                .unit-cap{
+                    width: 70%;
+                }
+            }
+            .unit.bag{
+                .unit-title{
+                    bottom: 90px;
+                }
+                .unit-price{
+                    bottom: 50px;
+                }
+                .unit-btn{
+                    bottom: 25px;
+                }
+                img{
+                    width: 70%;
+                }
+            }
+            
+        }
+        
+    }
+    .slick-slide.slick-active{
+        opacity: 0.95;
+    }
+    
+
+    
+
+   
+}

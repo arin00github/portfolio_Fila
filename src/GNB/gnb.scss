@@ -1,0 +1,252 @@
+.gnb-container{
+    width: 85%;
+    min-width: 1024px;
+    margin: 0 auto;
+    padding: 3rem 0;
+
+    .gnb-title{
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .serv-nav{
+        display: flex;
+        padding-top: 2rem;
+        height: 6rem;
+        border-bottom: 1px solid #aaa;
+        
+        li{
+            flex: 1;
+            line-height: 4.5rem;
+        }
+    }
+
+    .tab-area{
+        padding: 3rem 0;
+
+        //Tab01 고객센터 내용
+        #tab01{
+            display: flex;
+
+            .serv01, .serv02{
+                flex-basis: 50%;
+                display: flex;
+                
+
+                .title {
+                    width: 42%;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+                .sub{
+                    width: 58%;
+                    text-align: left;
+
+                    p{
+                        line-height: 1.6;
+                        padding: 0.8rem 0 ;
+                    }
+                    p:first-child{
+                        padding-top: 0;
+                    }
+                }
+            }
+            
+        }
+        //Tab02 공지사항내용
+        #tab02{
+            
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                border-top: 1px solid #000;
+                
+                tr{
+                    line-height: 2.6rem;
+                    height: 2.6rem;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                td:nth-of-type(1){width: 10%;}
+                td:nth-of-type(2){width: 15%;}
+                td:nth-of-type(3){width: 65%;}
+                td:nth-of-type(4){ width: 10%;}
+
+                thead{
+                    background: #eee;
+                    border-bottom: 1px solid #000;
+
+                    tr{
+                        height: 3rem;
+                        line-height: 3rem;
+                    }
+                   }
+            }
+
+        }
+
+        //Tab02 공지사항내용
+        #tab04{
+            
+            table{
+                width: 100%;
+                border-collapse: collapse;
+                border-top: 1px solid #000;
+                
+                tr{
+                    line-height: 2.6rem;
+                    height: 2.6rem;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                td:nth-of-type(1){width: 20%;}
+                td:nth-of-type(2){width: 10%;}
+                td:nth-of-type(3){width: 58%;}
+                td:nth-of-type(4){ width: 12%;}
+
+                thead{
+                    background: #eee;
+                    border-bottom: 1px solid #000;
+
+                    tr{
+                        height: 3rem;
+                        line-height: 3rem;
+                    }
+                   }
+            }
+
+        }
+        //tab03 FAQ 파트부분
+        #tab03{
+
+
+            .questMenu{
+                margin: 2rem 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                
+                li{
+                    margin: 0 1rem;
+                }
+            }
+
+            .questWrap{
+                margin: 0 3rem;
+                text-align: left;
+                margin-top: 4rem;
+
+                li{
+                    height: 4rem;
+                    line-height: 4rem;
+                    border-bottom: 1px solid #ddd;
+                }
+            }
+        }
+
+
+
+        //tab05 대리점 개설문의 내용
+        #tab05{
+            .text01{
+                font-size: 1.5rem;
+                margin-bottom: 0.8rem;
+            }
+            .store-alert{
+                border-radius: 4px;
+                display: block;
+                margin: 0 auto;
+                color: white;
+                background: #000;
+                padding: 0.7rem 2rem;
+                margin-top: 1.2rem;
+            }
+
+            .storeWrap{
+                margin: 4rem 0;
+                display: flex;
+                width: 100%;
+
+                .store{
+                    flex-basis: 40%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    div{
+                        font-size: 2rem;
+                        font-weight: bold;
+                    }
+                }
+                .storeInfo{
+                    flex-basis: 60%;
+
+                    table{
+                        width: 100%;
+
+                        tr{
+                            height: 3rem;
+                            vertical-align: middle;
+                            border-bottom: 1px solid #bdbdbd;
+                            th{
+                                width: 17%;
+                            }
+                            td{
+                                font-size: 0.9rem;
+                                width: 83%;
+                                text-align: left;
+                                color: #888;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+//로그인 페이지
+    .login-content{
+
+        form{
+            p{
+                margin: 0.5rem 0;
+    
+                #submit-btn{
+                    margin-top:1rem ;
+                    width: 220px;
+                    padding: 1rem;
+                    background: #000;
+                    color: white;
+                    border-radius: 1.7rem;
+                }
+    
+                label{
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+    
+                input{
+                    // border: none;
+                    // border-bottom: 1px solid #aaa;
+                    width: 220px;
+                    padding: 4px 6px;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+        
+        .subfn{
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+    
+            p{
+                margin: 0 0.7rem;
+            }
+        }
+    }
+
+    
+}
