@@ -4,6 +4,8 @@
     transform: translate(-50%, -50%);
 }
 
+@import '../App.scss';
+
 @mixin bannerText {
     color: white;
     font-weight: bold;
@@ -28,44 +30,23 @@ $color_gray01 : #BBB9B9;
         height: 600px;
         // background: #382B6C;
         position: relative;
+        @include respond-to(medium-screens) {height: 480px;}
+        @include respond-to(small-screens) {height: 380px;}
+        @include respond-to(xsmall-screens) {height: 320px;}
         
 
         .slick-slide{
             height: 600px;
+            @include respond-to(medium-screens) {height: 480px;}
+            @include respond-to(small-screens) {height: 380px;}
+            @include respond-to(xsmall-screens) {height: 320px;}
 
             .unit-slide{
                 position: relative;
                 height: 600px;
-
-                .bn-circle{
-                    position: absolute;
-                    right: 10%;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 350px;
-                    height: 350px;
-                    border-radius: 50%;
-                    background: #fff;
-                    opacity: 0.2;
-                }
-                .bn-circle::after{
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%,-50%);
-                    width: 30%;
-                    height: 30%;
-                    border-radius: 50%;
-                    background: #fff;
-                    opacity: 0.4;
-                    animation: circle 2s alternate-reverse infinite;
-                    z-index: 10;
-                }
-                @keyframes circle {
-                    0%{width: 30%; height: 30%;}
-                    100%{width: 120%; height: 120%;}
-                }
+                @include respond-to(medium-screens) {height: 480px;}
+                @include respond-to(small-screens) {height: 380px;}
+                @include respond-to(xsmall-screens) {height: 320px;}
 
                 .bn-img{
                     right: 15%;
@@ -144,6 +125,8 @@ $color_gray01 : #BBB9B9;
     .intro-area{
         margin-top: 6rem;
         width: 100%;
+        @include respond-to(small-screens) {margin-top: 3.8rem;}
+        @include respond-to(xsmall-screens) {margin-top: 3rem;}
         
         .title{
             padding: 2rem 0;
@@ -151,6 +134,10 @@ $color_gray01 : #BBB9B9;
             text-align: center;
             font-family: $font_Inter;
             font-weight: 700;
+            @include respond-to(small-screens) {font-size: 2.4rem;}
+            @include respond-to(xsmall-screens) {
+                padding: 1rem 0;
+                font-size: 2rem;}
         }
         
         .addition{
@@ -208,6 +195,7 @@ $color_gray01 : #BBB9B9;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        
 
         .item-list{
             width: calc((100% - 3rem)/4);
@@ -247,9 +235,10 @@ $color_gray01 : #BBB9B9;
 
     .event-area{
         width: 70%;
-        min-width: 1024px;
         margin: 0 auto;
         padding: 4rem 0;
+        @include respond-to(small-screens) {width: 80%;}
+        @include respond-to(xsmall-screens) {width: 90%;}
 
         .title{
             padding: 2rem 0;
@@ -257,7 +246,10 @@ $color_gray01 : #BBB9B9;
             text-align: center;
             font-family: $font_Inter;
             font-weight: 700;
+            @include respond-to(xsmall-screens) {padding: 1rem 0;
+                font-size: 2rem;
         }
+    }
 
         .boxwrap{
             width: 100%;
@@ -267,6 +259,9 @@ $color_gray01 : #BBB9B9;
                 display: flex;
                 height: 400px;
                 overflow: hidden;
+                @include respond-to(medium-screens){height: 350px;}
+                @include respond-to(small-screens){height: 310px;}
+                @include respond-to(xsmall-screens){height: 280px;}
 
                 div{
                     flex: 1;
@@ -277,6 +272,9 @@ $color_gray01 : #BBB9B9;
                 display: flex;
                 height: 400px;
                 overflow: hidden;
+                @include respond-to(medium-screens){height: 240px;}
+                @include respond-to(small-screens){height: 200px;}
+                @include respond-to(xsmall-screens){height: 160px;}
 
                 div{
                     flex: 1;

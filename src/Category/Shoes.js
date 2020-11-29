@@ -34,16 +34,18 @@ function Item(props) {
 
     const onOver = (e)=>{
        let list = e.currentTarget;
+        list.classList.add('active')
        let innerList = list.children
        let item = innerList[0].children
        //console.log(item[2])
 
-       item[2].style.transform = 'rotateZ(30deg)'
+       item[2].style.transform = 'rotateZ(-30deg)'
        item[2].style.transition = '0.3s'
        
     }
     const onLeave = (e) =>{
         let list = e.currentTarget;
+        list.classList.remove('active')
        let innerList = list.children
        let item = innerList[0].children
        //console.log(item[2])

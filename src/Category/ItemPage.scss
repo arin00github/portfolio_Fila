@@ -1,3 +1,5 @@
+@import '../App.scss';
+
 @mixin posCenter {
     position: absolute;
     top: 50%; left: 50%;
@@ -6,7 +8,15 @@
 @mixin paddingWidth {
     width: 70%;
     margin: 0 auto;
-    min-width: 1024px;
+    @include respond-to(medium-screens) {
+        width: 80%;
+    }
+    @include respond-to(small-screens) {
+        width: 84%;
+    }
+    @include respond-to(xsmall-screens) {
+        width: 90%;
+    }
 }
 
 $font_SCore: 'S-CoreDream';
@@ -24,20 +34,39 @@ $color_gray01 : #BBB9B9;
         display: flex;
         align-items: center;
         padding: 2rem 0;
+        @include respond-to(small-screens){
+            padding: 0;
+            display: block;}
+        @include respond-to(xsmall-screens){
+            padding: 0;
+            display: block;}
 
         .item-img{
             width: 50%;
             height: 512px;
             position: relative;
+            @include respond-to(small-screens){width: 100%; height: 450px;}
+            @include respond-to(xsmall-screens){width: 100%; height: 450px;}
 
             .bg-circle{
-                @include posCenter();
+                position: absolute;
+                width: 100%;
+                padding-bottom: 100%;
+               
+            }
+            .bg-circle::after{
+                content: '';
+                position: absolute;
+                left: 0; top: 0;
                 width: 100%;
                 height: 100%;
                 border-radius: 50%;
                 background: #f9f9f9;
-                
+                @include respond-to(small-screens){
+                    left: 50%; transform: translateX(-50%);
+                    width: 78%; height: 78%;}
             }
+
             .image{
                 @include posCenter();
                 display: block;
@@ -52,20 +81,31 @@ $color_gray01 : #BBB9B9;
             margin-left: 1.7rem;
             display: block;
             text-align: left;
+            @include respond-to(small-screens){
+                width: 100%; margin-left: 0;
+                margin-top: 2rem;
+            }
+            @include respond-to(xsmall-screens){width: 100%; margin-left: 0;}
 
             .title{
                 font-family: $font_SCore;
                 font-weight: 500;
                 padding: 1.2rem 0;
                 font-size: 2rem;
+                @include respond-to(small-screens){text-align: center;}
+                @include respond-to(xsmall-screens){text-align: center;}
             }
             .number{
                 color: $color_gray01;
+                @include respond-to(small-screens){text-align: center;}
+                @include respond-to(xsmall-screens){text-align: center;}
             }
 
             h3{
                 color: #9E9C9C;
                 font-size: 1rem;
+                @include respond-to(small-screens){text-align: center;}
+                @include respond-to(xsmall-screens){text-align: center;}
                 .price{
                     color: black;
                     padding-left: 2rem;
@@ -80,6 +120,9 @@ $color_gray01 : #BBB9B9;
                 //justify-content: center;
                 align-items: center;
                 z-index: 20;
+                @include respond-to(small-screens){
+                    justify-content: center;
+                }
                 p{
                     color: #9E9C9C;
                     font-size: 1rem;
@@ -95,6 +138,8 @@ $color_gray01 : #BBB9B9;
 
             .countWrap{
                 padding: 1rem 0;
+                @include respond-to(small-screens){text-align: center;}
+                @include respond-to(xsmall-screens){text-align: center;}
 
                 span{
                     display: inline-block;
@@ -123,16 +168,39 @@ $color_gray01 : #BBB9B9;
             }
             .selectItem{
                 padding: 1rem 0 ;
+                @include respond-to(small-screens){
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                }
 
                 .box-list {
+                    
                     display: flex;
+                    justify-content: center;
+                    @include respond-to(small-screens){
+                        border: 1px solid #ddd;
+                        border-radius: 12px;
+                        padding: 12px;
+                    }
+                    
 
                     .box-in-info{
+                        
                         display: flex;
                         text-align: center;
                         align-items: center;
+                        @include respond-to(small-screens){
+                            flex: auto;
+                            justify-content: space-evenly;
+                        }
                         
-                        div{ margin: 0 .5rem;}
+                        div{ 
+                            margin: 0 .5rem;
+                            @include respond-to(small-screens){
+                                margin: 0 1rem;
+                            }
+                        }
 
                         div:nth-of-type(1){
                             flex: 3;
@@ -151,6 +219,7 @@ $color_gray01 : #BBB9B9;
             }
 
             .btn-buy{
+                @include respond-to(small-screens){text-align: center;}
 
                 button{
                     margin: 0 10px;
@@ -170,6 +239,8 @@ $color_gray01 : #BBB9B9;
         width: 100%;
         height: 200px;
         background: #fafafa;
+        @include respond-to(small-screens){height: 100px; margin-top: 30px;}
+        @include respond-to(xsmall-screens){height: 100px; margin-top: 30px;}
     
     }
     .intro{
@@ -187,6 +258,12 @@ $color_gray01 : #BBB9B9;
             padding: 0 8rem;
             color: $color_gray01;
             line-height: 1.8;
+            @include respond-to(small-screens){
+                padding: 0 2rem;
+            }
+            @include respond-to(xsmall-screens){
+                padding: 0 2rem;
+            }
         }
 
     }
@@ -202,6 +279,12 @@ $color_gray01 : #BBB9B9;
             display: flex;
             justify-content: center;
             align-items: center;
+            @include respond-to(small-screens){
+                display: block;
+            }
+            @include respond-to(xsmall-screens){
+                display: block;
+            }
 
            
 
@@ -211,6 +294,8 @@ $color_gray01 : #BBB9B9;
             }
             
             .cut-list{
+                @include respond-to(small-screens){display: flex; justify-content: center;}
+                @include respond-to(xsmall-screens){display: flex;}
 
                 .cut-indicate{
                     width: 100px;

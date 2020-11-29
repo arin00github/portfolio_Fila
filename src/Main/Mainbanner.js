@@ -20,7 +20,7 @@ function MainBanner(){
     
             <Slider {...settings} className="main-bn-area">
                 <div className="unit-slide banner01">
-                    <div className="bn-circle"></div>
+                    
                     <div className="bn-txt">
                         <div className="txt-inner">
                             <p className="txt-01">FILA Online Store</p>
@@ -29,10 +29,10 @@ function MainBanner(){
                         </div>
                     </div>
                     
-                    <img src={process.env.PUBLIC_URL + '/img/shoes/휠라레인져스크립트_0.png'} alt="" className="bn-img"/ >
+                    
                 </div>
                 <div className="unit-slide banner02">
-                <div className="bn-circle"></div>
+                
                     <div className="bn-txt">
                         <div className="txt-inner">
                             <p className="txt-01">FILA Online Store</p>
@@ -41,10 +41,10 @@ function MainBanner(){
                         </div>
                     </div>
                     
-                    <img src={process.env.PUBLIC_URL + '/img/shoes/휠라레인져스크립트_0.png'} alt="" className="bn-img"/ >
+                    
                 </div>
                 <div className="unit-slide banner03">
-                <div className="bn-circle"></div>
+            
                     <div className="bn-txt">
                         <div className="txt-inner">
                             <p className="txt-01">FILA Online Store</p>
@@ -56,7 +56,7 @@ function MainBanner(){
                     <img src={process.env.PUBLIC_URL + '/img/shoes/휠라레인져스크립트_0.png'} alt="" className="bn-img"/ >
                 </div>
                 <div className="unit-slide banner04">
-                <div className="bn-circle"></div>
+                
                     <div className="bn-txt">
                         <div className="txt-inner">
                             <p className="txt-01">FILA Online Store</p>
@@ -65,7 +65,7 @@ function MainBanner(){
                         </div>
                     </div>
                     
-                    <img src={process.env.PUBLIC_URL + '/img/shoes/휠라레인져스크립트_0.png'} alt="" className="bn-img"/ >
+                    
                 </div>
             </Slider>
 

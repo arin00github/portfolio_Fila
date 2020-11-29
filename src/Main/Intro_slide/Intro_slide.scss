@@ -1,4 +1,7 @@
 
+@import '../../App.scss';
+
+
 $fontNumber00 : "Sanchez";
 $fontNumber01 : "roboto";
 
@@ -33,6 +36,9 @@ $fontNumber01 : "roboto";
                     @include centerHorizon();
                     bottom: 80px;
                     font-size: 18px;
+                    @include respond-to(medium-screens) {bottom: 48px;}
+                    @include respond-to(small-screens) {bottom: 52px; font-size: 16px;}
+                    @include respond-to(xsmall-screens) {bottom: 44px; font-size: 14px;}
                     
                 }
                 .unit-price{
@@ -41,6 +47,9 @@ $fontNumber01 : "roboto";
                     bottom: 50px;
                     font-size: 24px;
                     font-family: $fontNumber00;
+                    @include respond-to(medium-screens) {bottom: 14px;}
+                    @include respond-to(small-screens) {bottom: 18px; font-size: 18px;}
+                    @include respond-to(xsmall-screens) {bottom: 14px; font-size: 18px;}
                     
                 }
                 .unit-btn{
@@ -56,6 +65,7 @@ $fontNumber01 : "roboto";
                     @include centerHorizon();
                     transform-origin: 20% 65%;
                     top: 35px;
+                    @include respond-to(xsmall-screens) {top: 40px;}
                 }
                 .unit-cap{
                     width: 70%;
@@ -64,9 +74,15 @@ $fontNumber01 : "roboto";
             .unit.bag{
                 .unit-title{
                     bottom: 90px;
+                    @include respond-to(medium-screens) {bottom: 48px;}
+                    @include respond-to(small-screens) {bottom: 52px; font-size: 16px;}
+                    @include respond-to(xsmall-screens) {bottom: 44px; font-size: 14px;}
                 }
                 .unit-price{
                     bottom: 50px;
+                    @include respond-to(medium-screens) {bottom: 14px;}
+                    @include respond-to(small-screens) {bottom: 18px; font-size: 18px;}
+                    @include respond-to(xsmall-screens) {bottom: 14px; font-size: 18px;}
                 }
                 .unit-btn{
                     bottom: 25px;

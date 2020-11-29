@@ -1,3 +1,6 @@
+
+@import '../App.scss';
+
 @mixin center {
     display: flex;
     justify-content: center;
@@ -13,12 +16,14 @@ $fontEn01 : "Raleway";
         height: 90px;
         display: flex;
         position: relative;
+        @include respond-to(xsmall-screens) {height: 70px;}
         .event-slog{
             margin-right: auto;
             p{
                 font-size: 1rem;
                 margin: 0 22px;
                 line-height: 90px;
+                @include respond-to(xsmall-screens) {display: none;}
             }
         }
         .logo{
@@ -30,11 +35,15 @@ $fontEn01 : "Raleway";
                 width: 150px;
                 display: block;
                 padding: 6px 0;
-                
+                @include respond-to(xsmall-screens) {width: 100px;}
             }
         }
         .user{
             margin-left: auto;
+            display: block;
+            @include respond-to(medium-screens) {display: none;}
+            @include respond-to(small-screens) {display: none;}
+            @include respond-to(xsmall-screens) {display: none;}
 
             span{
                 line-height: 90px;

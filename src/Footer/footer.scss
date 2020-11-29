@@ -1,18 +1,29 @@
+@import '../App.scss';
+
+
 #footer{
     background-color: #f8f8f8;
+    padding: 3rem 0;
 
     .ft-inner{
         width: 70%;
-        margin: 2rem auto;
-
+        margin: 0 auto;
+        @include respond-to(medium-screens) {width: 90%;}
+        @include respond-to(small-screens) {width: 90%;}
+        @include respond-to(xsmall-screens) {width: 90%;}
         .ft-list{
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             height: 3rem;
+            @include respond-to(small-screens) {margin-bottom: 1rem;}
+            @include respond-to(xsmall-screens) {margin-bottom: 1rem;}
 
             li{
                 margin: 0 1rem;
                 line-height: 3rem;
+                @include respond-to(small-screens) {margin: 0 .5rem;}
+                @include respond-to(xsmall-screens) {margin: 0 .3rem;}
             }
         }
         .ft-info{
@@ -22,15 +33,20 @@
                 padding: 1rem 0;
             }
             
-
-            ul{
-                display: flex;
-                justify-content: center;
-
-            li{
-                margin: 0 1rem;
+            .company-info{
+                @include respond-to(small-screens) {display: none;}
+                @include respond-to(xsmall-screens) {display: none;}
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    
+    
+                li{
+                    margin: 0 1rem;
+                }
+                }
             }
-            }
+            
         }
         .alert{
             padding: 1rem 0;
@@ -40,3 +56,5 @@
 
 
 }
+
+

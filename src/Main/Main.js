@@ -15,7 +15,7 @@ function Main(){
                 <IntroSdShoes></IntroSdShoes>
             </div>
             <div className="intro-area" id="shoes">
-                <div className="title">SHOES</div>
+                <div className="title">BAGS</div>
                 <IntroSdBag></IntroSdBag>
             </div>
             <div className="intro-area" id="shoes">

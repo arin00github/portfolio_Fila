@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+$breakpoint-1024 : 1024px;
+$breakpoint-768 : 768px;
+$breakpoint-480 : 480px;
+
+
+@mixin respond-to($media) {
+    @if $media == handhelds {
+        @media only screen and (min-width: $breakpoint-1024 + 1){@content;}
+    }
+    @else if $media == medium-screens{
+        @media only screen and (min-width:$breakpoint-768 + 1) and (max-width:$breakpoint-1024){@content;}
+    }@else if $media == small-screens{
+        @media only screen and (min-width:$breakpoint-480 + 1) and (max-width:$breakpoint-768){@content;}
+    }@else if $media == xsmall-screens{
+      @media only screen and (max-width:$breakpoint-480){
+        @content;
+      }
+    }
+}
+

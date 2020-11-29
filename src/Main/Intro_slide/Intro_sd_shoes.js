@@ -16,7 +16,16 @@ function IntroSdShoes(props){
         infinite:false,
         slidesToShow:4,
         slideToScroll:1,
-
+        responsive : [
+            {breakpoint:1024,
+            settings:{
+                slidesToShow:3,
+            }},
+            {breakpoint:768,
+                settings:{
+                    slidesToShow:2,
+                }}
+        ]
     }
 
     useEffect(function(){
@@ -35,39 +44,44 @@ function IntroSdShoes(props){
         window.addEventListener('resize',setLayout)
 
         window.addEventListener('load',setLayout)
+
+        return()=>{
+            window.removeEventListener('load',setLayout)
+            window.removeEventListener('resize', setLayout)
+        }
     },[])
 
     const onOver = (e)=>{
         let $image = e.currentTarget.children[0];
         let $title = e.currentTarget.children[1];
         let $price = e.currentTarget.children[2];
-        let $btn = e.currentTarget.children[3];
+        
         e.currentTarget.style.backgroundColor = "#F6F6F6"
         //$image.style.width = "100%";
-        $title.style.bottom = '110px';
+        $title.style.transform = 'translate(-50%,-170%)';
         $title.style.transition = "0.3s";
-        $price.style.bottom = '70px';
+        $price.style.transform = 'translate(-50%,-150%)';
         $price.style.transition = "0.3s";
         $image.style.top  = "-10px";
         $image.style.width  = "80%";
         $image.style.transition = "0.3s";
-        $btn.style.opacity = 1;
+        
     } 
     const onOut = (e)=>{
         let $image= e.currentTarget.children[0];
         let $title = e.currentTarget.children[1];
         let $price = e.currentTarget.children[2];
-        console.log($price);
-        let $btn = e.currentTarget.children[3];
+        //console.log($price);
+        
         e.currentTarget.style.backgroundColor = "#ffffff"
-        $title.style.bottom = '90px';
+        $title.style.transform = 'translate(-50%,0)';
         $title.style.transition = "0.3s";
-        $price.style.bottom = '50px';
+        $price.style.transform = 'translate(-50%,0)';
         $price.style.transition = "0.3s";
         $image.style.top  = "35px";
         $image.style.width  = "70%";
         $image.style.transition = "0.3s"
-        $btn.style.opacity = 0;
+        
     } 
 
 

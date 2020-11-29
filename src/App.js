@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch , Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './App.css';
-import Header from './Header/Header.js';
-import Main from './Main/Main.js';
-import Cart from './Cart/Cart';
+import './App.scss';
 import Footer from './Footer/Footer';
-import Shoes from './Category/Shoes';
-import Bag from './Category/Bag';
-import Cap from './Category/Cap';
-import Login from './GNB/Login';
-import Service from './GNB/Service';
-import ShoesPage from './Category/Shoes_page';
-import BagPage from './Category/Bag_page';
-import CapPage from './Category/cap_page';
+import Header from './Header/Header';
+import Loading from './Component/Loading';
+///import Shoes from './Category/Shoes';
+//import Bag from './Category/Bag';
+//import Cap from './Category/Cap';
+//import Login from './GNB/Login';
+//import Service from './GNB/Service';
+//import ShoesPage from './Category/Shoes_page';
+//import BagPage from './Category/Bag_page';
+//import CapPage from './Category/cap_page';
+
+
+let Main = lazy(()=>{return import('./Main/Main')})
+let Cart = lazy(()=>{return import('./Cart/Cart')})
+let Shoes = lazy(()=>{return import('./Category/Shoes')})
+let Bag = lazy(()=>{return import('./Category/Bag')})
+let Cap = lazy(()=>{return import('./Category/Cap')})
+let Login = lazy(()=>{return import('./GNB/Login')})
+let Service = lazy(()=>{return import('./GNB/Service')})
+let ShoesPage = lazy(()=>{return import('./Category/Shoes_page')})
+let BagPage = lazy(()=>{return import('./Category/Bag_page')})
+let CapPage = lazy(()=>{return import('./Category/cap_page')})
+
+
 
 
 function App(props) {
@@ -29,7 +42,7 @@ function App(props) {
       }
       <Header></Header>
       
-
+    <Suspense fallback={<Loading></Loading>}>
       <Switch>
         <Route exact={true} path="/" component={Main} />
         
@@ -44,8 +57,6 @@ function App(props) {
         <Route exact={true} path="/bag/:id" render={(props) => (<BagPage data={bagProps}{...props}/>)}/>
 
         <Route exact={true} path="/cap/:id" render={(props) => (<CapPage data={capProps}{...props}/>)}/>
-        
-      
 
         <Route path="/bag" component={Bag}/>
         
@@ -61,7 +72,7 @@ function App(props) {
         
 
       </Switch>
-
+      </Suspense>
       <Footer></Footer>
 
     </div>
