@@ -25,6 +25,9 @@ $color_gray01 : #BBB9B9;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    @include respond-to(large-screens){
+        min-width: 1024px;
+    }
     
 
     .item-list{
@@ -84,6 +87,15 @@ $color_gray01 : #BBB9B9;
         }
 
         
+    }
+    .item-list.bag{
+        img{
+            width: 80%;
+
+            @include respond-to(small-screens) {
+                width: 74%;
+            }
+        }
     }
 
     .item-list.cap{

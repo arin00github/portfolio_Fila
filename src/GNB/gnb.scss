@@ -1,8 +1,11 @@
+@import '../App.scss';
+
 .gnb-container{
     width: 85%;
-    min-width: 1024px;
     margin: 0 auto;
     padding: 3rem 0;
+    @include respond-to(small-screens){width: 100%;}
+    @include respond-to(xsmall-screens){width: 100%;}
 
     .gnb-title{
         padding: 2rem 0;
@@ -15,10 +18,37 @@
         padding-top: 2rem;
         height: 6rem;
         border-bottom: 1px solid #aaa;
+        @include respond-to(small-screens){
+            display: block;
+            height: auto;
+            
+        }
+        @include respond-to(xsmall-screens){
+            display: block;
+            height: auto;
+            
+        }
         
         li{
-            flex: 1;
+            flex:1;
             line-height: 4.5rem;
+            cursor: pointer;
+            @include respond-to(small-screens){
+                line-height: 4rem;
+                text-align: left;
+                padding-left: 1rem;
+                float: left;
+                width: 50%;
+                border-bottom: 1px solid #aaa;
+            }
+            @include respond-to(xsmall-screens){
+                line-height: 3rem;
+                text-align: left;
+                padding-left: 1rem;
+                float: left;
+                width: 50%;
+                border-bottom: 1px solid #aaa;
+            }
         }
     }
 
@@ -28,6 +58,12 @@
         //Tab01 고객센터 내용
         #tab01{
             display: flex;
+            @include respond-to(small-screens) {
+                display: block;
+            }
+            @include respond-to(xsmall-screens) {
+                display: block;
+            }
 
             .serv01, .serv02{
                 flex-basis: 50%;
@@ -119,10 +155,11 @@
         }
         //tab03 FAQ 파트부분
         #tab03{
+            
 
 
             .questMenu{
-                margin: 2rem 0;
+                padding: 2rem 0;
                 width: 100%;
                 display: flex;
                 justify-content: center;
@@ -136,6 +173,7 @@
                 margin: 0 3rem;
                 text-align: left;
                 margin-top: 4rem;
+                @include respond-to(xsmall-screens) { margin: 0 1rem;}
 
                 li{
                     height: 4rem;
@@ -149,9 +187,13 @@
 
         //tab05 대리점 개설문의 내용
         #tab05{
+            clear: both;
             .text01{
                 font-size: 1.5rem;
                 margin-bottom: 0.8rem;
+                @include respond-to(small-screens){
+                    padding-top: 2rem;
+                }
             }
             .store-alert{
                 border-radius: 4px;
@@ -164,9 +206,12 @@
             }
 
             .storeWrap{
+
                 margin: 4rem 0;
                 display: flex;
                 width: 100%;
+                @include respond-to(small-screens) {display: block;}
+                @include respond-to(xsmall-screens) {display: block;}
 
                 .store{
                     flex-basis: 40%;
