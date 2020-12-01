@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import './Intro_slide.scss';
 
 function IntroSdShoes(props){
-    console.log(props.shoesState)
 
     const settings={
         dots:true,
@@ -28,9 +27,15 @@ function IntroSdShoes(props){
         ]
     }
 
+    
+        //console.log(slideBx);
+
+    
+    
+   
+
     useEffect(function(){
         let slideBx = document.querySelectorAll('.unit');
-        //console.log(slideBx);
         function setLayout (){
             slideBx.forEach(box => {
                let parent = box.parentElement;
@@ -41,14 +46,9 @@ function IntroSdShoes(props){
                
             })
         }
+        setLayout ();
         window.addEventListener('resize',setLayout)
-
         window.addEventListener('load',setLayout)
-
-        return()=>{
-            window.removeEventListener('load',setLayout)
-            window.removeEventListener('resize', setLayout)
-        }
     },[])
 
     const onOver = (e)=>{
@@ -58,9 +58,9 @@ function IntroSdShoes(props){
         
         e.currentTarget.style.backgroundColor = "#F6F6F6"
         //$image.style.width = "100%";
-        $title.style.transform = 'translate(-50%,-170%)';
+        $title.style.transform = 'translate(-50%,-240%)';
         $title.style.transition = "0.3s";
-        $price.style.transform = 'translate(-50%,-150%)';
+        $price.style.transform = 'translate(-50%,-120%)';
         $price.style.transition = "0.3s";
         $image.style.top  = "-10px";
         $image.style.width  = "80%";
@@ -93,7 +93,7 @@ function IntroSdShoes(props){
                props.shoesState.map(function(a,i){
                    return(
                        <div className="unit" key={i} onMouseOver={onOver} onMouseOut={onOut}>
-                                <img src={a.imgUrl[0]} alt="" width="90%"/>
+                                <img src={a.imgUrl[0]} alt=""/>
                                 <div className="unit-title">{a.title}</div>
                                 <div className="unit-price">{a.price}</div>
                                 <button className="unit-btn"><Link to={'/shoes/'+a.id }>상품보러가기</Link></button>

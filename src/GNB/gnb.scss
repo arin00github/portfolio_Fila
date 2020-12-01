@@ -1,16 +1,23 @@
 @import '../App.scss';
 
 .gnb-container{
-    width: 85%;
+    width: 90%;
     margin: 0 auto;
     padding: 3rem 0;
-    @include respond-to(small-screens){width: 100%;}
-    @include respond-to(xsmall-screens){width: 100%;}
+    @include respond-to(small-screens){
+        padding-top: 0;
+        width: 100%;}
+    @include respond-to(xsmall-screens){
+        padding-top: 0;
+        width: 100%;}
 
     .gnb-title{
         padding: 2rem 0;
         text-align: center;
         font-size: 2.5rem;
+
+        @include respond-to(small-screens){display: none;}
+        @include respond-to(xsmall-screens){display: none;}
     }
 
     .serv-nav{
@@ -20,12 +27,16 @@
         border-bottom: 1px solid #aaa;
         @include respond-to(small-screens){
             display: block;
-            height: auto;
+            height: 230px;
+            padding-top: 0;
+            border-bottom:none;
             
         }
         @include respond-to(xsmall-screens){
             display: block;
-            height: auto;
+            height: 230px;
+            padding-top: 0;
+            border-bottom:none;
             
         }
         
@@ -33,27 +44,33 @@
             flex:1;
             line-height: 4.5rem;
             cursor: pointer;
+            @include respond-to(medium-screens){
+                flex:auto
+            }
             @include respond-to(small-screens){
                 line-height: 4rem;
                 text-align: left;
                 padding-left: 1rem;
                 float: left;
                 width: 50%;
-                border-bottom: 1px solid #aaa;
+                border-bottom: 1px solid #ddd;
             }
             @include respond-to(xsmall-screens){
-                line-height: 3rem;
+                line-height: 4rem;
                 text-align: left;
                 padding-left: 1rem;
                 float: left;
                 width: 50%;
-                border-bottom: 1px solid #aaa;
+                border-bottom: 1px solid #ddd;
             }
         }
     }
 
     .tab-area{
         padding: 3rem 0;
+        @include respond-to(small-screens){padding: 0;}
+        @include respond-to(xsmall-screens){padding: 0;}
+
 
         //Tab01 고객센터 내용
         #tab01{
@@ -68,24 +85,64 @@
             .serv01, .serv02{
                 flex-basis: 50%;
                 display: flex;
+                @include respond-to(small-screens) {
+                    display: block;
+                    width: calc(90% - 1.6rem);
+                    padding: 1.3rem 1rem; margin: 0 auto;
+                    border: 1px solid #ececec; border-radius: 1rem;
+                }
+                @include respond-to(xsmall-screens) {
+                    display: block;
+                    width: calc(90% - 1.6rem);
+                    padding: 1.3rem 1rem; margin: 0 auto;
+                    border: 1px solid #ececec; border-radius: 1rem;
+                }
                 
 
                 .title {
                     width: 42%;
                     font-size: 1.2rem;
                     font-weight: 600;
+                    @include respond-to(small-screens) {
+                        width: 100%;
+                        margin-bottom: 1rem;
+                    }
+                    @include respond-to(xsmall-screens) {
+                        width: 100%;
+                        margin-bottom: 1rem;
+                    }
                 }
                 .sub{
                     width: 58%;
                     text-align: left;
+                    @include respond-to(small-screens) {
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    @include respond-to(xsmall-screens) {
+                        width: 100%;
+                        text-align: center;
+                    }
 
                     p{
                         line-height: 1.6;
                         padding: 0.8rem 0 ;
+                        @include respond-to(small-screens){padding: 0;}
+                        @include respond-to(xsmall-screens){padding: 0;}
                     }
                     p:first-child{
                         padding-top: 0;
                     }
+                }
+            }
+            .serv02{
+                @include respond-to(small-screens){
+                    margin-top: 1rem;
+                }
+
+                @include respond-to(xsmall-screens){
+                    margin-top: 1rem;
                 }
             }
             
@@ -97,17 +154,38 @@
                 width: 100%;
                 border-collapse: collapse;
                 border-top: 1px solid #000;
+
+
+                
                 
                 tr{
                     line-height: 2.6rem;
                     height: 2.6rem;
                     border-bottom: 1px solid #ddd;
+
+                    .table-num{width: 20%;}
+                    .table-type{width: 10%;}
+                    .table-title{width: 58%;}
+                    .table-data{ width: 12%;}
+
+                    @include respond-to(small-screens){
+                        .table-num{display: none;}
+                        .table-type{width: 15%;}
+                        .table-title{width: 65%;}
+                        .table-data{ width: 20%;}
+                    }
+                    @include respond-to(xsmall-screens){
+                        .table-num{display: none;}
+                        .table-type{display: none;}
+                        .table-title{
+                            text-align: left;
+                            width: 80%; padding-left: 1.2rem;}
+                        .table-data{ 
+                            width: 20%; font-size: 12px;}
+                    }
                 }
 
-                td:nth-of-type(1){width: 10%;}
-                td:nth-of-type(2){width: 15%;}
-                td:nth-of-type(3){width: 65%;}
-                td:nth-of-type(4){ width: 10%;}
+                
 
                 thead{
                     background: #eee;
@@ -116,13 +194,21 @@
                     tr{
                         height: 3rem;
                         line-height: 3rem;
+
+                        @include respond-to(small-screens){
+                            th:nth-child(1){display: none;}
+                        }
+                        @include respond-to(xsmall-screens){
+                            th:nth-child(1){display: none;}
+                            th:nth-child(2){display: none;}
+                        }
                     }
                    }
             }
 
         }
 
-        //Tab02 공지사항내용
+        //Tab04 매장안내
         #tab04{
             
             table{
@@ -131,15 +217,37 @@
                 border-top: 1px solid #000;
                 
                 tr{
-                    line-height: 2.6rem;
+                    line-height: 2.6rem; 
                     height: 2.6rem;
                     border-bottom: 1px solid #ddd;
-                }
 
-                td:nth-of-type(1){width: 20%;}
-                td:nth-of-type(2){width: 10%;}
-                td:nth-of-type(3){width: 58%;}
-                td:nth-of-type(4){ width: 12%;}
+                    td:nth-of-type(1){width: 10%;}
+                    td:nth-of-type(2){width: 15%;}
+                    td:nth-of-type(3){width: 65%;}
+                    td:nth-of-type(4){ width: 10%;}
+                    @include respond-to(large-screens){
+                        td:nth-of-type(3){width:55%;}
+                        td:nth-of-type(4){ width: 20%;}
+                    }
+                    @include respond-to(medium-screens){
+                        td:nth-of-type(3){width:55%;}
+                        td:nth-of-type(4){ width: 20%;}
+                    }
+                    @include respond-to(small-screens){
+                        td:nth-of-type(2){display: none;}
+                        td:nth-of-type(4){display: none;}
+                        
+
+                    }
+                    @include respond-to(xsmall-screens){
+                        td:nth-of-type(1){display: none;}
+                        td:nth-of-type(2){display: none;}
+                        td:nth-of-type(4){display: none;}
+                        line-height: 2rem; 
+                        height: 2rem;
+                    }
+                    
+                }
 
                 thead{
                     background: #eee;
@@ -150,6 +258,7 @@
                         line-height: 3rem;
                     }
                    }
+                
             }
 
         }
@@ -163,9 +272,22 @@
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                @include respond-to(small-screens){
+                    padding: 0; display: block;}
+                @include respond-to(xsmall-screens){
+                    padding: 0; display: block;}
                 
                 li{
                     margin: 0 1rem;
+                    cursor: pointer;
+                    @include respond-to(small-screens){
+                        margin: .5rem 1.8rem; 
+                        padding: .7rem 0; background: #efefef;
+                    }
+                    @include respond-to(xsmall-screens){
+                        margin: .5rem 1rem; 
+                        padding: .7rem 0; background: #efefef;
+                    }
                 }
             }
 
@@ -173,12 +295,23 @@
                 margin: 0 3rem;
                 text-align: left;
                 margin-top: 4rem;
+                @include respond-to(small-screens) { margin: 0 1.8rem;}
                 @include respond-to(xsmall-screens) { margin: 0 1rem;}
 
                 li{
                     height: 4rem;
                     line-height: 4rem;
                     border-bottom: 1px solid #ddd;
+                    @include respond-to(small-screens) {
+                        line-height: 1.6;
+                        height: auto;
+                        padding: 1rem 0;
+                    }
+                    @include respond-to(xsmall-screens) {
+                        line-height: 1.6;
+                        height: auto;
+                        padding: 1rem 0;
+                    }
                 }
             }
         }
@@ -188,13 +321,21 @@
         //tab05 대리점 개설문의 내용
         #tab05{
             clear: both;
+            width: 90%;
+            margin: 0 auto;
             .text01{
                 font-size: 1.5rem;
                 margin-bottom: 0.8rem;
                 @include respond-to(small-screens){
                     padding-top: 2rem;
+                    font-size: 1.2rem;
+                }
+                @include respond-to(xsmall-screens){
+                    padding-top: 2rem;
+                    font-size: 1rem;
                 }
             }
+            
             .store-alert{
                 border-radius: 4px;
                 display: block;
@@ -218,6 +359,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    padding-bottom: 24px;
                     
                     div{
                         font-size: 2rem;
@@ -236,13 +378,30 @@
                             border-bottom: 1px solid #bdbdbd;
                             th{
                                 width: 17%;
+                                @include respond-to(small-screens){
+                                    width: 25%;
+                                }
+                                @include respond-to(xsmall-screens){
+                                    width: 25%;
+                                }
                             }
                             td{
                                 font-size: 0.9rem;
                                 width: 83%;
                                 text-align: left;
                                 color: #888;
+
+                                @include respond-to(small-screens){
+                                    width: 75%;
+                                }
+
+                                @include respond-to(xsmall-screens){
+                                    width: 75%;
+                                }
                             }
+                        }
+                        tr:nth-child(1){
+                            border-top: 1px solid  #bdbdbd;
                         }
                     }
                 }

@@ -1,75 +1,170 @@
-.cart-table{
-    margin-top: 4rem;
-    width: 100%;
+@import '../App.scss';
 
-    table{
-        width: 100%;
 
-        thead{
-            background: #fbfbfb;
-            
-
-            tr{
-                color: #aaa;
-                height: 3.5rem;
-
-                th:nth-of-type(1){ width: 20%; }
-                th:nth-of-type(2){ width: 50%; }
-                th:nth-of-type(3){ width: 10%; }
-                th:nth-of-type(4){ width: 10%; }
-                th:nth-of-type(5){ width: 10%; }
-            }
+.cart-container{
+    width: 90%;
+    margin: 0 auto;
+    padding: 3rem 0;
+    @include respond-to(small-screens){
+        padding-top: 0;
+        }
+    @include respond-to(xsmall-screens){
+        padding-top: 0;
         }
 
-        tbody{
-            tr{ 
-                td:nth-of-type(1){ width: 20%; }
-                td:nth-of-type(2){ 
-                    width: 50%; 
-                    
-                    .cart-main-info{
-                        display: flex;
-                        width: 100%;
-                        align-items: center;
+    .cart-title{
+        padding: 2rem 0;
+        text-align: center;
+        font-size: 2.5rem;
 
-                        span{padding: 0 1rem;}
-                        .cart-it-title{
-                            font-size: 1.3rem;
+        @include respond-to(small-screens){display: none;}
+        @include respond-to(xsmall-screens){display: none;}
+    }
+    .cart-cont-wrap{
+        
+        margin-top: 4rem;
+    
+        
+    
+        .cart-table{
+            width: 100%;
+    
+        
+        
+            table{
+                width: 100%;
+        
+                thead{
+                    background: #fbfbfb;
+                    @include respond-to(medium-screens) {display: none !important;}
+                    @include respond-to(small-screens) {display: none !important;}
+                    @include respond-to(xsmall-screens) {display: none !important;}
+                    
+        
+                    tr{
+                        color: #aaa;
+                        height: 3.5rem;
+                        
+        
+                        th:nth-of-type(1){ width: 20%; }
+                        th:nth-of-type(2){ width: 50%; }
+                        th:nth-of-type(3){ width: 10%; }
+                        th:nth-of-type(4){ width: 10%; }
+                        th:nth-of-type(5){ width: 10%; }
+                    }
+                }
+        
+                tbody{
+                    tr{ 
+                        td:nth-of-type(1){ width: 20%; }
+                        td:nth-of-type(2){ 
+                            width: 50%; 
+                            
+                            .cart-main-info{
+                                display: flex;
+                                width: 100%;
+                                align-items: center;
+    
+                                @include respond-to(small-screens){display: block;}
+                                @include respond-to(xsmall-screens){display: block;}
+        
+                                span{
+                                    padding: 0 1rem;
+                                    
+                                    @include respond-to(small-screens){display: block;}
+                                    @include respond-to(xsmall-screens){display: block;}
+                                }
+    
+                                .cart-it-title{
+                                    font-size: 1.3rem;
+                                }
+    
+                                @include respond-to(medium-screens){img{display: none;}}
+                                @include respond-to(small-screens){img{display: none;}}
+                                @include respond-to(xsmall-screens){img{display: none;}}
+                            }
+                        }
+                        td:nth-of-type(3){ 
+                            width: 10%; 
+        
+                            .countbtn{
+                                padding: 0.5rem 0.7rem;
+                                border: 1px solid #ddd;
+                                margin: 0 0.5rem;
+                                border-radius: 4px;
+                            }
+                        }
+                        td:nth-of-type(4){ width: 10%; }
+                        td:nth-of-type(5){ width: 10%; }
+        
+                        @include respond-to(medium-screens) {
+                            display: block;
+                            td{display: block; padding: 1.2rem 0;}
+                            td:nth-of-type(1){width: 100%;}
+                            td:nth-of-type(2){width: 100%;}
+                            td:nth-of-type(3){width: 100%;}
+                            td:nth-of-type(4){width: 100%;}
+                            td:nth-of-type(5){width: 100%;}
+                        }
+                        @include respond-to(small-screens) {
+                            display: block;
+                            td{display: block; padding: 1.2rem 0;}
+                            td:nth-of-type(1){width: 100%;}
+                            td:nth-of-type(2){width: 100%;}
+                            td:nth-of-type(3){width: 100%;}
+                            td:nth-of-type(4){width: 100%;}
+                            td:nth-of-type(5){width: 100%;}
+                        }
+                        @include respond-to(xsmall-screens) {
+                            display: block;
+                            td{display: block; padding: 1.2rem 0;}
+                            td:nth-of-type(1){width: 100%;}
+                            td:nth-of-type(2){width: 100%;}
+                            td:nth-of-type(3){width: 100%;}
+                            td:nth-of-type(4){width: 100%;}
+                            td:nth-of-type(5){width: 100%;}
                         }
                     }
                 }
-                td:nth-of-type(3){ 
-                    width: 10%; 
+        
+            }
+        
+        }
+        
+    }
+    .buy-action{
+        margin-top: 4rem;
+    
+        button{
+            margin: 0 10px;
+            width: 11rem;
+            height: 3rem;
+            line-height: 3rem;
+            border-radius: 1.5rem;
+            background: #fff;
+            color: #000;
+            font-weight: bold;
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+        }
+    }
 
-                    .countbtn{
-                        padding: 0.5rem 0.7rem;
-                        border: 1px solid #ddd;
-                        margin: 0 0.5rem;
-                        border-radius: 4px;
-                    }
-                }
-                td:nth-of-type(4){ width: 10%; }
-                td:nth-of-type(5){ width: 10%; }
+    .cart-m-content{
+        .cart-list{
+            display: flex;
+
+            .cart-image{
+                flex-basis: 40%;
+                img{width: 100%;}
+            }
+
+            .cart-m-info{
+                margin-left: 2rem;
+                flex-basis: calc(60% - 2rem);
+                text-align: left;
             }
         }
-
-    }
-
-}
-
-.buy-action{
-    margin-top: 4rem;
-
-    button{
-        margin: 0 10px;
-        width: 11rem;
-        height: 3rem;
-        line-height: 3rem;
-        border-radius: 1.5rem;
-        background: #fff;
-        color: #000;
-        font-weight: bold;
-        box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
     }
 }
+
+
 

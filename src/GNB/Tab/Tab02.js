@@ -3,6 +3,11 @@ import publishData from './../../data/publish'
 
 //data 작성해서 배열로 만들어서 돌려야 겠다.
 function TabBox02 (){
+
+    
+
+
+
     return(
         <div id="tab02">
             <table>
@@ -19,10 +24,10 @@ function TabBox02 (){
                         publishData.map(function(a, i){
                             return(
                                 <tr key={i}>
-                                    <td>{a.number}</td>
-                                    <td>{a.type}</td>
-                                    <td>{a.title}</td>
-                                    <td>{a.date}</td>
+                                    <td className="table-num">{a.number}</td>
+                                    <td className="table-type">{a.type}</td>
+                                    <td className="table-title">{a.title}</td>
+                                    <td className="table-data">{a.date}</td>
                                 </tr>
                             )
                         })
@@ -32,4 +37,8 @@ function TabBox02 (){
         </div>
     )
 }
+
+
+
+
 export default TabBox02;

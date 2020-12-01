@@ -85,7 +85,7 @@ function IntroSdCap(props){
                props.capState.map(function(a,i){
                    return(
                        <div className="unit" key={i} onMouseOver={onOver} onMouseOut={onOut}>
-                            <img src={a.imgUrl[0]} alt="" width="70%" className="unit-cap"/>
+                            <img src={a.imgUrl[0]} alt="" className="unit-cap"/>
                             <div className="unit-title">{a.title}</div>
                             <div className="unit-price">{a.price}</div>
                             <button className="unit-btn"><Link to={'/cap/'+a.id }>상품보러가기</Link></button>

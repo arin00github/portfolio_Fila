@@ -90,7 +90,7 @@ function IntroSdBag(props){
                props.bagState.map(function(a,i){
                    return(
                        <div className="unit bag" key={i} onMouseOver={onOver} onMouseOut={onOut}>
-                            <img src={a.imgUrl[0]} alt="" width="70%"/>
+                            <img src={a.imgUrl[0]} alt=""/>
                             <div className="unit-title">{a.title}</div>
                             <div className="unit-price">{a.price}</div>
                             <button className="unit-btn"><Link to={'/bag/'+a.id }>상품보러가기</Link></button> 

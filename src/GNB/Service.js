@@ -4,6 +4,7 @@ import TabBox02 from './Tab/Tab02';
 import TabBox03 from './Tab/Tab03';
 import TabBox04 from './Tab/Tab04';
 import TabBox05 from './Tab/Tab05';
+import TabBox06 from './Tab/Tab06'
 import './gnb.scss';
 
 function Service (){
@@ -19,7 +20,8 @@ let [show, setShow ]= useState(0);
 const ClickNav = (idx)=>{ setShow(idx);}
 
 const tabObject = {
-    0 :<TabBox01 />, 1:<TabBox02 />, 2:<TabBox03 />,3:<TabBox04 />,4:<TabBox05 />
+    0 :<TabBox01 />, 1:<TabBox02 />, 2:<TabBox03 />,3:<TabBox04 />,4:<TabBox05 />,
+    5: <TabBox06/>
 }
 
 useEffect(()=>{
@@ -39,6 +41,7 @@ useEffect(()=>{
                 <li onClick={()=>{ClickNav(2)}}>FQA</li>
                 <li onClick={()=>{ClickNav(3)}}>매장안내</li>
                 <li onClick={()=>{ClickNav(4)}}>대리점 개설문의</li>
+                <li onClick={()=>{ClickNav(5)}}>1:1 문의</li>
             </ul>
             <div className="tab-area" >
                 { tabObject[show] }
