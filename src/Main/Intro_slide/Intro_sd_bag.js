@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import IntroSlide from 'react-slick';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './Intro_slide.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function IntroSdBag(props){
     //console.log(props.shoesState)
@@ -28,26 +30,55 @@ function IntroSdBag(props){
         ]
 
     }
+    let slideBx = document.querySelectorAll('.unit');
+        //console.log(slideBx);
+    const setLayout = useCallback(()=>{
+        slideBx.forEach(box => {
+            let parent = box.parentElement;
+            let grandParent = parent.parentElement;
+            let $width = grandParent.clientWidth
+            //console.log($width);
+            parent.style.height = $width * 1.2 +'px';
+            box.style.height = $width * 1.2 +'px';
+            //console.log(box.style.height);
+        })
+    },[slideBx])
+    
+
+    // 주소올때마다 함수가 실행되어 있어야 하는데 안되어 있음.
+    //추가적인 훅공부가 필요해 보임.
+    
 
     
     useEffect(function(){
-        let slideBx = document.querySelectorAll('.unit');
-        //console.log(slideBx);
-        function setLayout (){
-            slideBx.forEach(box => {
-               let parent = box.parentElement;
-               let grandParent = parent.parentElement;
-                let $width = grandParent.clientWidth
-                parent.style.height = $width * 1.2 +'px';
-                box.style.height = $width * 1.2 +'px';
+        // let slideBx = document.querySelectorAll('.unit');
+        // //console.log(slideBx);
+        // function setLayout (){
+        //     slideBx.forEach(box => {
+        //        let parent = box.parentElement;
+        //        let grandParent = parent.parentElement;
+        //         let $width = grandParent.clientWidth
+        //         parent.style.height = $width * 1.2 +'px';
+        //         box.style.height = $width * 1.2 +'px';
                
-            })
-        }
-        window.addEventListener('resize',setLayout)
+        //     })
+        // }
+        setLayout();
+        window.addEventListener('resize',function(){
+            setLayout();
+            //console.log('resize')
+        })
+        window.addEventListener('load',function(){
+            setLayout()
+            //console.log('loading')
+        })
 
-        window.addEventListener('load',setLayout)
+        return()=>{
+            window.removeEventListener('resize',setLayout)
+            window.removeEventListener('load',setLayout)
+        }
         
-    },[])
+    },[setLayout])
     
     const onOver = (e)=>{
         let $image = e.currentTarget.children[0];

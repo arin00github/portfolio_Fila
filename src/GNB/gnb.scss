@@ -6,9 +6,11 @@
     padding: 3rem 0;
     @include respond-to(small-screens){
         padding-top: 0;
+        padding-bottom: 5rem;
         width: 100%;}
     @include respond-to(xsmall-screens){
         padding-top: 0;
+        padding-bottom: 5rem;
         width: 100%;}
 
     .gnb-title{
@@ -16,8 +18,12 @@
         text-align: center;
         font-size: 2.5rem;
 
-        @include respond-to(small-screens){display: none;}
-        @include respond-to(xsmall-screens){display: none;}
+        @include respond-to(small-screens){
+            padding: 3rem 0;
+            font-size: 1.6rem;}
+        @include respond-to(xsmall-screens){
+            padding: 3rem 0;
+            font-size: 1.6rem;}
     }
 
     .serv-nav{
@@ -62,6 +68,14 @@
                 float: left;
                 width: 50%;
                 border-bottom: 1px solid #ddd;
+            }
+        }
+        li:nth-child(1), li:nth-child(2){
+            @include respond-to(small-screens){
+                border-top: 1px solid #ddd;
+            }
+            @include respond-to(xsmall-screens){
+                border-top: 1px solid #ddd;
             }
         }
     }

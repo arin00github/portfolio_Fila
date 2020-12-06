@@ -6,7 +6,7 @@
     transform: translate(-50%,-50%);
 }
 @mixin paddingWidth {
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     @include respond-to(medium-screens) {
         width: 90%;
@@ -19,11 +19,7 @@
     }
 }
 
-$font_SCore: 'S-CoreDream';
 
-$font_Inter : 'Inter';
-
-$color_gray01 : #BBB9B9;
 
 
 #container.unit-page{
@@ -88,10 +84,11 @@ $color_gray01 : #BBB9B9;
             @include respond-to(xsmall-screens){width: 100%; margin-left: 0;}
 
             .title{
-                font-family: $font_SCore;
+                font-family: $font_base;
                 font-weight: 500;
                 padding: 1.2rem 0;
                 font-size: 2rem;
+                @include respond-to(medium-screens){font-size: 1.6rem;}
                 @include respond-to(small-screens){text-align: center;}
                 @include respond-to(xsmall-screens){text-align: center;}
             }
@@ -133,6 +130,7 @@ $color_gray01 : #BBB9B9;
                 li{
                     width: 100px;
                     height: 100px;
+                    @include respond-to(medium-screens){width: 80px; height: 80px;}
                     
                 }
             }
@@ -158,6 +156,7 @@ $color_gray01 : #BBB9B9;
 
             .sizeWrap{
                 padding: 1rem 0;
+                @include respond-to(medium-screens){padding: 0;}
                 @include respond-to(small-screens){text-align: center;}
 
                 .sizebtn{
@@ -170,6 +169,7 @@ $color_gray01 : #BBB9B9;
             }
             .selectItem{
                 padding: 1rem 0 ;
+                @include respond-to(medium-screens){padding: 0;}
                 @include respond-to(small-screens){
                     display: flex;
                     justify-content: center;
@@ -255,7 +255,7 @@ $color_gray01 : #BBB9B9;
         @include paddingWidth();
          
         .title{
-            font-family: $font_SCore;
+            font-family: $font_base;
             font-weight: 500;
             font-size: 2rem;
         }
@@ -316,6 +316,7 @@ $color_gray01 : #BBB9B9;
 
                 .cut-indicate{
                     width: 100px;
+                    cursor: pointer;
 
                     img{
                         width: 100%;

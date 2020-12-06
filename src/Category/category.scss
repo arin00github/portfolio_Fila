@@ -7,7 +7,7 @@
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
 }
-$color_gray01 : #BBB9B9;
+
 
 
 .cate-title{
@@ -45,11 +45,11 @@ $color_gray01 : #BBB9B9;
         }
         @include respond-to(small-screens) {
             width: calc((100%)/2);
-            height: 320px;
+            height: 54vw;
         }
         @include respond-to(xsmall-screens) {
             width: calc((100%)/2);
-            height: 290px;
+            height: 56vw;
         }
 
         .item-num{
@@ -60,6 +60,8 @@ $color_gray01 : #BBB9B9;
         }
         .item-title{
             text-align: left;
+            font-family: $font_base;
+            font-weight: 500;
             
         }
 
@@ -70,7 +72,8 @@ $color_gray01 : #BBB9B9;
             text-align: right;
             font-size: 1.5rem;
             padding-left: 1rem;
-            font-family: 'Sanchez';
+            font-family: $font-number;
+            font-weight: 500;
             transition: 0.5s;
             transform: scale(0);
         }

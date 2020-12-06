@@ -14,7 +14,7 @@ $fontNumber01 : "roboto";
 
 .slick-slider{
     //background: #F6F6F6;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     
     
     
@@ -45,7 +45,7 @@ $fontNumber01 : "roboto";
                     height: auto;
                     @include centerHorizon();
                     bottom: 50px;
-                    font-size: 24px;
+                    font-size: 18px;
                     font-family: $fontNumber00;
                     @include respond-to(medium-screens) {bottom: 14px;}
                     @include respond-to(small-screens) {bottom: 18px; font-size: 18px;}
@@ -73,13 +73,13 @@ $fontNumber01 : "roboto";
             }
             .unit.bag{
                 .unit-title{
-                    bottom: 90px;
+                    bottom: 60px;
                     @include respond-to(medium-screens) {bottom: 48px;}
                     @include respond-to(small-screens) {bottom: 52px; font-size: 16px;}
                     @include respond-to(xsmall-screens) {bottom: 44px; font-size: 14px;}
                 }
                 .unit-price{
-                    bottom: 50px;
+                    bottom: 24px;
                     @include respond-to(medium-screens) {bottom: 14px;}
                     @include respond-to(small-screens) {bottom: 18px; font-size: 18px;}
                     @include respond-to(xsmall-screens) {bottom: 14px; font-size: 18px;}

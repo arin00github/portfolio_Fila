@@ -6,121 +6,65 @@
 
 @import '../App.scss';
 
-@mixin bannerText {
-    color: white;
-    font-weight: bold;
-    font-family: "Montserrat";
-}
 
-$font_SCore: 'S-CoreDream';
-
-$font_Inter : 'Inter';
-
-$color_gray01 : #BBB9B9;
 
 
 #container.main{
     width: 100%;
     padding: 0;
 
+    .wrap-bn{
 
-    .main-bn-area.slick-slider{
-        padding: 0;
         width: 100%;
-        height: 600px;
-        // background: #382B6C;
-        position: relative;
-        @include respond-to(medium-screens) {height: 480px;}
-        @include respond-to(small-screens) {height: 380px;}
-        @include respond-to(xsmall-screens) {height: 320px;}
-        
-
-        .slick-slide{
-            height: 600px;
-            @include respond-to(medium-screens) {height: 480px;}
-            @include respond-to(small-screens) {height: 380px;}
-            @include respond-to(xsmall-screens) {height: 320px;}
-
-            .unit-slide{
-                position: relative;
-                height: 600px;
-                @include respond-to(medium-screens) {height: 480px;}
-                @include respond-to(small-screens) {height: 380px;}
-                @include respond-to(xsmall-screens) {height: 320px;}
-
-                .bn-img{
-                    right: 15%;
-                    position: absolute;
-                    display: block;
-                }
-                .bn-txt{
-                    overflow: hidden;
-                    text-align: left;
-                    position: absolute;
-                    left: 20%;
-                    top: 30%;
-
-                    .txt-inner{
-                        width: 100%;
-                        height: 100%;
-                        .txt-01{
-                            font-size: 2rem;
-                            @include bannerText()
-                        }
+        //여기에 width값 없으면 다시 컴포넌트 들어올 경우 슬라이드가 엄청 커진다.
+        .main-bn-area.slick-slider{
+            padding: 0;
+            
+            
+            // background: #382B6C;
+            position: relative;
+            
+            
     
-                        h3{
-                            @include bannerText();
-                            font-size: 4.8rem;
-                        }
-                        .txt-kr{
-                            margin-top: 1rem;
-                            width: 230px;
-                            padding: 0.6rem;
-                            border: 1px solid #fff;
-                            font-size: 1rem;
-                            color: white;
-                        }
-                    }
+            .slick-slide{
+                width: 100vw;
+                
+               
+    
+                .unit-slide{
+                    position: relative;
+                    width: 100vw;
                 }
                 
             }
-            .unit-slide.banner01{
-                background-color: #3e03ac; }
-
-            .unit-slide.banner02{
-                background-color: #0a1552; }
-
-            .unit-slide.banner03{
-                background-color: #520a4c; }
-
-            .unit-slide.banner04{
-                background-color: #195870; }
-
-        }
-
-        .item-dots{
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-
-            li{
-                float: left;
-                width: 1rem;
-                height: 1rem;
-                border-radius: 50%;
-                margin: 0.7rem;
-                background: #fff;
-
-                button{
-                    width: 100%;
-                    height: 100%;
+    
+            .item-dots{
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+    
+                li{
+                    float: left;
+                    width: .6rem;
+                    height: .6rem;
+                    border-radius: 50%;
+                    margin: 0.7rem;
+                    background: #fff;
+    
+                    button{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
+    
+            
         }
-
-        
     }
+
+
+    
 
     .intro-area{
         margin-top: 6rem;
@@ -132,7 +76,8 @@ $color_gray01 : #BBB9B9;
             padding: 2rem 0;
             font-size: 3rem;
             text-align: center;
-            font-family: $font_Inter;
+            font-family: $font_title;
+            color: #dbdbdb;
             font-weight: 700;
             @include respond-to(small-screens) {font-size: 2.4rem;}
             @include respond-to(xsmall-screens) {
@@ -150,7 +95,7 @@ $color_gray01 : #BBB9B9;
 
             .add-title{
                 width: calc(30% - 1.5rem);
-                font-family: $font_SCore;
+                font-family: $font_base;
                 margin-right: 1.5rem;
 
                 .text01, .text02{
@@ -237,6 +182,7 @@ $color_gray01 : #BBB9B9;
         width: 70%;
         margin: 0 auto;
         padding: 4rem 0;
+        @include respond-to(medium-screens) {width: 80%;}
         @include respond-to(small-screens) {width: 80%;}
         @include respond-to(xsmall-screens) {width: 90%;}
 
@@ -260,8 +206,8 @@ $color_gray01 : #BBB9B9;
                 height: 400px;
                 overflow: hidden;
                 @include respond-to(medium-screens){height: 350px;}
-                @include respond-to(small-screens){height: 310px;}
-                @include respond-to(xsmall-screens){height: 280px;}
+                @include respond-to(small-screens){height: 40vw;}
+                @include respond-to(xsmall-screens){height: 230px;}
 
                 div{
                     flex: 1;
@@ -273,8 +219,8 @@ $color_gray01 : #BBB9B9;
                 height: 400px;
                 overflow: hidden;
                 @include respond-to(medium-screens){height: 240px;}
-                @include respond-to(small-screens){height: 200px;}
-                @include respond-to(xsmall-screens){height: 160px;}
+                @include respond-to(small-screens){height: 32vw;}
+                @include respond-to(xsmall-screens){height: 120px;}
 
                 div{
                     flex: 1;

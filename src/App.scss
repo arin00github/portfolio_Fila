@@ -8,7 +8,7 @@ $breakpoint-480 : 480px;
 
 
 @mixin respond-to($media) {
-    @if media == xlarge-screens{
+    @if $media == xlarge-screens{
       @media only screen and (min-width:$breakpoint-1280) and (max-width:1920px){@content;}
     }@else if $media == large-screens {
         @media only screen and (min-width: $breakpoint-1024 + 1)and(max-width:$breakpoint-1280){@content;}
@@ -23,3 +23,8 @@ $breakpoint-480 : 480px;
     }
 }
 
+$font_base: 'S-CoreDream';
+$font_Inter : 'Inter';
+$color_gray01 : #BBB9B9;
+$font_title : 'Oswald', sans-serif;
+$font-number :'Quicksand', sans-serif;

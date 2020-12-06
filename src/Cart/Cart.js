@@ -69,7 +69,7 @@ function CartPC (props){
                     <table>
                         <thead>
                             <tr><th>상품번호</th><th>상품이름/정보</th><th>갯수</th><th>상품가격</th><th>구매가격</th></tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             {
                                 props.cartData
@@ -123,10 +123,10 @@ function CartMobile(props){
                                 <img src={a.thum} alt=""/>
                             </div>
                             <div className="cart-m-info">
-                                <p>{a.title}</p>
-                                <p>{a.size}</p>
-                                <p>{a.color}</p>
-                                <p>{a.price}</p>
+                                <p className="title">{a.title}</p>
+                                <p className="size">사이즈 <span>{a.size}</span></p>
+                                <p className="color">색상 <span>{a.color}</span></p>
+                                <p className="price">가격 <span>{a.price}</span></p>
                                 <div className="cart-select">
                                     <button>삭제</button>
                                 </div>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import IntroSlide from 'react-slick';
 import { connect } from 'react-redux';
 import './Intro_slide.scss';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function IntroSdShoes(props){
 

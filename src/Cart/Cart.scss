@@ -85,7 +85,8 @@
                             }
                         }
                         td:nth-of-type(3){ 
-                            width: 10%; 
+                            width: 10%;
+                            min-width: 105px; 
         
                             .countbtn{
                                 padding: 0.5rem 0.7rem;
@@ -136,7 +137,6 @@
         margin-top: 4rem;
     
         button{
-            margin: 0 10px;
             width: 11rem;
             height: 3rem;
             line-height: 3rem;
@@ -145,6 +145,13 @@
             color: #000;
             font-weight: bold;
             box-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+
+            @include respond-to(xsmall-screens){
+                width: calc((100% - 12px )/2);
+            }
+        }
+        button:first-child{
+            margin-right: 12px;
         }
     }
 
@@ -153,15 +160,61 @@
             display: flex;
 
             .cart-image{
-                flex-basis: 40%;
+                flex-basis: 50%;
                 img{width: 100%;}
+                @include respond-to(xsmall-screens) {
+                    flex-basis: 120px;
+                }
+            }
+            .cart-m-info > p{
+                padding: 1rem 0;
             }
 
             .cart-m-info{
                 margin-left: 2rem;
-                flex-basis: calc(60% - 2rem);
+                flex-basis: calc(50% - 2rem);
                 text-align: left;
+                @include respond-to(xsmall-screens) {
+                    flex-basis: calc(100% - 2rem - 120px);
+                }
+
+                .title{
+                    font-family: $font_base;
+                    font-size: 24px;
+                    border-bottom: 1px solid $color_gray01;
+                }
+                .price span{
+                    font-family: $font_number;
+                    font-weight: 500;
+                    font-size: 30px;
+                    @include respond-to(xsmall-screens) {
+                        font-size: 1.5rem;
+                    }
+                }
+                >p{position: relative;}
+                >p >span{
+                    position: absolute;
+                    display: block;
+                    padding-left: 90px;
+                    top: 50%; transform: translateY(-50%);
+                }
+                
             }
+            
+            .cart-select{
+                 button{
+                    width: 11rem;
+                    height: 3rem;
+                    border: 1px solid #ddd;
+                    line-height: 3rem;
+                    border-radius: 4px;
+                    background: #fff;
+                    color: #000;
+                    font-weight: bold;
+                 }
+            }
+            
+            
         }
     }
 }

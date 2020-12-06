@@ -46,7 +46,7 @@ function UserArray (state=UserCart , action){
     action.payload.map(function(a,i){
       return(copy.push(a))
     })
-    console.log(copy)
+    //console.log(copy)
     return copy
   }else{
     return state
