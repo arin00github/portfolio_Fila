@@ -13,57 +13,7 @@ function BagPage(props){
 
     let thumnail = props.data[id].imgUrlArray;
 
-    //count버튼 변수
-    let [count, setCount] = useState(0)
 
-    let [box, setbox] = useState([]);
-
-    function putCart (){
-        let newone = new SelectItem(); //새로운 객체 생성
-        setbox([...box,newone])
-   }
-   console.log(box)
-
-    function SelectItem (){
-        this.thum = props.data[id].imgUrl[0];
-        this.title = props.data[id].title;
-        this.color = props.data[id].color; 
-        this.count = count;
-        this.number = props.data[id].number;
-        this.size = props.data[id].size;
-        this.price = props.data[id].price;
-        // 상품의 갯수가 바뀌게 하고 싶다.
-    };
-
-    // SelectItem.prototype.onIncrease = function(){
-
-    //     this.count = this.count + 1
-    //     console.log(this.count)
-    // }
- 
-    // SelectItem.prototype.onDecrease = function(){
-    //     let self = this;
-    //     if(self.count > 0 ){
-    //       setCount(self.count - 1);  
-    //     }else{
-    //         alert('상품갯수는 마이너스가 될 수 없습니다.')
-    //     }
-    // }
-    const onIncrease = function(){
-        setCount(count + 1)
-        if(box.length === 0){
-            putCart()
-        }
-    }
- 
-    const onDecrease = function(){
-        
-        if(count > 0 ){
-          setCount(count - 1);  
-        }else{
-            alert('상품갯수는 마이너스가 될 수 없습니다.')
-        }
-    }
 
     const imgRef = useRef();
     const ChangeImg = (e)=>{
@@ -71,7 +21,6 @@ function BagPage(props){
         let main = imgRef.current;
         main.setAttribute('src', url);
     } 
-
 
     return(
         <>
@@ -86,11 +35,7 @@ function BagPage(props){
                     <p className="number">{props.data[id].number}</p>
                     <h2 className="title">{props.data[id].title}</h2>
                     <h3>가격<span className="price">{props.data[id].price}</span></h3>
-                    <div className="countWrap">
-                        <button className="countbtn" onClick={onDecrease} >-</button> 
-                        <span>{count}</span>
-                        <button className="countbtn" onClick={onIncrease}>+</button>
-                    </div>
+                    
                     <ul className="item-color">
                         <p>색상</p>
                     {
@@ -104,19 +49,34 @@ function BagPage(props){
                         }
                     </ul>
                     <div className="selectItem" >
-                        { 
-                            box
-                            ? box.map(function(a,i){
-                                return(<ItemBox key={i} item={a}></ItemBox>) })
-                            : null 
-                        }
+                        <div className="box-list">
+                            <div><img src={props.data[id].imgUrl[0]} width="80px" alt=""/></div>
+                            <div className="box-in-info">
+                                <div>{props.data[id].title}</div>
+                                <div>
+                                    <div>{props.data[id].color}</div>
+                                    <div>{props.data[id].size}</div>
+                                </div>
+                                {/* <div>{props.data[id].count}개</div> */}
+                            </div>
+                        </div>
                     
                     </div>
                     <div className="btn-buy">
                         <button type="button">구매하기</button>
                         <button type="button" onClick={()=>{
                             history.push('/cart');
-                            props.dispatch({type:'select', payload:box})
+                            props.dispatch({type:'select', payload:
+                            {
+                                    thum : props.data[id].imgUrl[0],
+                                    title : props.data[id].title,
+                                    color : props.data[id].color,
+                                    count : props.data[id].count,
+                                    number : props.data[id].number,
+                                    size : props.data[id].size,
+                                    price : props.data[id].price,
+                            }
+                        })
                         }}>장바구니넣기</button>
                     </div>
                 </div>
@@ -209,22 +169,6 @@ function BagPage(props){
 
 
 // 컴포넌트
-function ItemBox(props){
-    //console.log(props)
-    return(
-        <div className="box-list">
-            <div><img src={props.item.thum} width="80px" alt=""/></div>
-            <div className="box-in-info">
-                <div>{props.item.title}</div>
-                <div>
-                    <div>{props.item.color}</div>
-                    <div>{props.item.size}</div>
-                </div>
-                <div>{props.item.count}개</div>
-            </div>
-        </div>
-    )
-}
 
 function toCart(state){
     

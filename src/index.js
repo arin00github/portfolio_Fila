@@ -30,12 +30,13 @@ function BagFn(state=Data2) {
 function UserArray (state=UserCart , action){
   if(action.type === 'add'){
     let copy = [...state];
-    copy[action.index].count += 1;
+    console.log(action.index)
+    copy[action.index].count++;
     return copy;
   }else if(action.type === 'subtract'){
     let copy = [...state];
     if(copy[action.index].count>0){
-      copy[action.index].count -= 1;
+      copy[action.index].count--;
     }else{
       copy[action.index].count = 0;
     }
@@ -43,10 +44,8 @@ function UserArray (state=UserCart , action){
     return copy;
   }else if(action.type === 'select'){
     let copy = [...state];
-    action.payload.map(function(a,i){
-      return(copy.push(a))
-    })
-    //console.log(copy)
+    copy.push(action.payload)
+    console.log(copy)
     return copy
   }else{
     return state

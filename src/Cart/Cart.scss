@@ -129,6 +129,39 @@
                 }
         
             }
+
+            #counter{
+                margin-top: 100px;
+
+                .counter-inner{
+                    padding: 100px 2%;
+                    padding-top: 40px;
+                    border-top: 1px solid #ddd;
+                    
+                    
+                    .counter-box{
+                        display: flex;
+                        width: 60%;
+                        margin-left: 40%;
+                        text-align: right;
+                        justify-content: flex-end;
+                        align-items: flex-end;
+
+                        div{
+                            margin: 0 16px;
+                            font-size: 20px;
+                        }
+                        
+                        .total{
+                            font-size: 40px;
+                            font-family: 'Malgun Gothic';
+                        }
+                    }
+                    
+
+
+                }
+            }
         
         }
         

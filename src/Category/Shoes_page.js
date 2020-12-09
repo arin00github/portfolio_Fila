@@ -7,49 +7,24 @@ import './ItemPage.scss';
 function ShoesPage(props){
     
 
-    let sizeRef = useRef();
+    let [value , setValue] = useState("")
     let basket = useRef();
 
     let {id}= useParams();
     //console.log(props)
     let history = useHistory();
     //count버튼 변수
-    let [count, setCount] = useState(0)
+    
 
    //오브젝트가 추가 되는 배열
    //기존배열과 나중배열이 합쳐져야 한다. 
 
-   let [box, setbox] = useState([]);
-   function putCart (size){
-        let newone = new SelectItem(size); //새로운 객체 생성
-        setbox([...box,newone])
-   }
-   console.log(box)
+   
 
-   function SelectItem (idx){
-       this.thum = props.data[id].imgUrl[0];
-       this.title = props.data[id].title;
-       this.color = props.data[id].color; 
-       this.count = count;
-       this.number = props.data[id].number;
-       this.size = props.data[id].size[idx];
-       this.price = props.data[id].price;
-   }
-    
-   function onIncrease(){
-       setCount(count + 1);
-   }
 
-   function onDecrease(){
-       if(count >0 ){
-         setCount(count - 1);  
-       }else{
-           alert('상품갯수는 마이너스가 될 수 없습니다.')
-       }
-   }
 
    const imgRef = useRef();
-    const ChangeImg = (e)=>{
+    const ChangeImg = (e) => {
         let url = e.target.getAttribute('src');
         let main = imgRef.current;
         main.setAttribute('src', url);
@@ -70,16 +45,14 @@ function ShoesPage(props){
                     <h2 className="title">{props.data[id].title}</h2>
                     <h3>가격<span className="price">{props.data[id].price}</span>  원</h3>
                     
-                    <div className="countWrap">
-                        <button className="countbtn" onClick={onDecrease} >-</button> 
-                        <span>{count}</span>
-                        <button className="countbtn" onClick={onIncrease}>+</button>
-                    </div>
+                    
                     <div className="sizeWrap">
                         {
                             props.data[id].size.map(function(a, i){
                                 return(
-                                <button ref={sizeRef} onClick={()=> putCart(i)} key={i} className="sizebtn">{a}</button>
+                                <button onClick={()=>{
+                                    setValue(a)
+                                }} key={i} className="sizebtn">{a}</button>
                                 )
                             })
                         }
@@ -97,20 +70,33 @@ function ShoesPage(props){
                         }
                     </ul>
                     <div className="selectItem" ref={basket}>
-                        { 
-                            box
-                            ? box.map(function(a,i){
-                                return(<ItemBox key={i} item={a}></ItemBox>) })
-                            : null 
-                        }
+                        <div className="box-list">
+                            <div><img src={props.data[id].imgUrl[0]} width="80px" alt=""/></div>
+                            <div className="box-in-info">
+                                <div>{props.data[id].title}</div>
+                                <div>
+                                    <div>{props.data[id].color}</div>
+                                    <div>{value}</div>
+                                </div>
+                                {/* <div>{props.data[id].count}개</div> */}
+                            </div>
+                        </div>
                     
                     </div>
                     <div className="btn-buy">
                         <button type="button">구매하기</button>
                         <button type="button" onClick={()=>{
                             history.push('/cart');
-                            props.dispatch({type:'select', payload:box
-
+                            props.dispatch({type:'select', payload:
+                            {
+                                thum : props.data[id].imgUrl[0],
+                                title : props.data[id].title,
+                                color : props.data[id].color,
+                                count : props.data[id].count,
+                                number : props.data[id].number,
+                                size : value,
+                                price : props.data[id].price,
+                            }
                         })}}>장바구니넣기</button>
                     </div>
                 </div>
@@ -118,9 +104,9 @@ function ShoesPage(props){
 
             <div className="recomend"></div>
             <div className="intro">
-                    <p className="title">{props.data[id].title}</p>
-                    <p className="desc">{props.data[id].desc}</p>
-                </div>
+                <p className="title">{props.data[id].title}</p>
+                <p className="desc">{props.data[id].desc}</p>
+            </div>
             <div className="display">
                 <div className="display-inner">
                     <div className="mag-img">
@@ -191,18 +177,7 @@ function ShoesPage(props){
 }
 
 // 컴포넌트
-function ItemBox(props){
-    return(
-        <div className="box-list">
-            <div><img src={props.item.thum} width="80px" alt=""/></div>
-            <div className="box-in-info">
-                <div>{props.item.title}</div>
-                <div>{props.item.color}</div>
-                <div>{props.item.size}</div>
-            </div>
-        </div>
-    )
-}
+
 
 //Redux 데이터 받는 함수
 function toCart(state){
